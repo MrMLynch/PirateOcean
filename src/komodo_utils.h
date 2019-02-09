@@ -1687,6 +1687,13 @@ void komodo_args(char *argv0)
         }
         //KOMODO_PAX = 1;
     } //else KOMODO_PAX = GetArg("-pax",0);
+
+    SoftSetArg("-ac_name", std::string("PIRATE"));
+    SoftSetArg("-ac_supply", std::string("0"));
+    SoftSetArg("-ac_reward", std::string("25600000000"));
+    SoftSetArg("-ac_private", std::string("1"));
+    SoftSetArg("-ac_halving", std::string("77777"));
+
     name = GetArg("-ac_name","");
     if ( argv0 != 0 )
     {
