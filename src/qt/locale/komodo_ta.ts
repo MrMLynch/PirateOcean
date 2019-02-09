@@ -90,8 +90,8 @@
         <translation>&amp;செய்தியை சரிசெய்...</translation>
     </message>
     <message>
-        <source>Komodo</source>
-        <translation>Komodo</translation>
+        <source>Pirate</source>
+        <translation>Pirate</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -708,8 +708,8 @@
 <context>
     <name>komodo-core</name>
     <message>
-        <source>Komodo Core</source>
-        <translation>Komodo மையம்</translation>
+        <source>Pirate Core</source>
+        <translation>Pirate மையம்</translation>
     </message>
     <message>
         <source>(default: %u)</source>

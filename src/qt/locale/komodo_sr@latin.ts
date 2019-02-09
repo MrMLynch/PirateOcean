@@ -158,16 +158,16 @@
         <translation>Otvori &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Komodo address</source>
-        <translation>Pošalji novčiće na Komodo adresu</translation>
+        <source>Send coins to a Pirate address</source>
+        <translation>Pošalji novčiće na Pirate adresu</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Proveri poruku...</translation>
     </message>
     <message>
-        <source>Komodo</source>
-        <translation>Komodo</translation>
+        <source>Pirate</source>
+        <translation>Pirate</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -406,8 +406,8 @@
 <context>
     <name>komodo-core</name>
     <message>
-        <source>Komodo Core</source>
-        <translation>Komodo Core</translation>
+        <source>Pirate Core</source>
+        <translation>Pirate Core</translation>
     </message>
     <message>
         <source>Information</source>
