@@ -1,1 +1,0 @@
-start ..\KomodoOceanGUI.exe -ac_name=DSEC -ac_supply=7000000 -addnode=185.148.147.30

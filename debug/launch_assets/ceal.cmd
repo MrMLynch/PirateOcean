@@ -1,1 +1,0 @@
-start ..\KomodoOceanGUI.exe -ac_name=CEAL -ac_supply=366666666 -addnode=78.47.196.146

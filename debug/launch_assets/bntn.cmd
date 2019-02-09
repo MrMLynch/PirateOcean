@@ -1,1 +1,0 @@
-start ..\KomodoOceanGUI.exe -ac_name=BNTN -ac_supply=500000000 -addnode=94.130.169.205

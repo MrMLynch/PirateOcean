@@ -1,1 +1,0 @@
-start ..\KomodoOceanGUI.exe -ac_name=AXO -ac_supply=200000000 -addnode=78.47.196.146

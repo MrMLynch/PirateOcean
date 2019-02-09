@@ -297,7 +297,7 @@
     </message>
 </context>
 <context>
-    <name>KomodoOceanGUI</name>
+    <name>PirateOceanGUI</name>
     <message>
         <location filename="../komodooceangui.cpp" line="+357"/>
         <source>Sign &amp;message...</source>

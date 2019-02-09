@@ -1,19 +1,15 @@
-## KomodoOcean (komodo-qt) ##
+## PirateOcean (komodo-qt) ##
 
-![](./images/image00.png)
+Pirate-Qt (PirateOcean) is a world-first Qt native wallet for ARRR ([Pirate](https://pirate.black/)). It's available for three OS platforms - Windows, Linux, MacOS.
 
-Komodo-Qt (KomodoOcean) is a world-first Qt native wallet for KMD ([Komodo](https://komodoplatform.com/)) and all of assetchains. It's available for three OS platforms - Windows, Linux, MacOS.
-
-**NB!** This repo have **three** branches:
+**NB!** This repo has **three** branches:
 
 
 - [master](../../tree/master) for Windows
 - [Linux](../../tree/Linux) for Linux
 - [MacOS](../../tree/MacOS) for MacOS
 
-Visit [#wallet-ocean-qt](https://discord.gg/U5WWaJR) channel in Komodo Discord for more information.
-
-![](./images/image01.png)
+Visit [#wallet-development](https://discord.gg/b8FYze) channel in Pirate Discord for more information.
 
 ### System requirements ###
 
@@ -21,18 +17,13 @@ Visit [#wallet-ocean-qt](https://discord.gg/U5WWaJR) channel in Komodo Discord f
 - At least 4 Gb of **free** RAM (8 or 16 Gb physical RAM recommended).
 - About ~10-15 Gb of storage space to sync full blockchain (SSD drive is recommended)
 
-Before you start create the following configuration file, named `komodo.conf` in `%APPDATA%\Komodo` folder:
+Before you start create the following configuration file, named `PIRATE.conf` in `%APPDATA%\Komodo\PIRATE` folder:
 
     rpcuser=bitcoinrpc
     rpcpassword=password
     txindex=1
-    addnode=5.9.102.210
-    addnode=78.47.196.146
-    addnode=178.63.69.164
-    addnode=88.198.65.74
-    addnode=5.9.122.241
-    addnode=144.76.94.38
-    addnode=89.248.166.91
+    addnode=136.243.102.225
+    addnode=zero.kolo.supernet.org
 
 And download following files in %APPDATA%\ZcashParams folder: 
 
@@ -47,23 +38,19 @@ Also you can use `fetch-params.cmd` batch file in `release` folder to download a
 If you already have installed Agama Wallet - you already have all needed. 
 
 For more information about Komodo Platform, please visit official site: [https://komodoplatform.com/](https://komodoplatform.com/) . 
+For more information about Pirate, please visit official site: [https://pirate.black/](https://pirate.black/) .
 
-Komodo-Qt (KomodoOcean) wallet also have official channel in Komodo Discord - [#wallet-ocean-qt](https://discord.gg/U5WWaJR). If you have any questions or just want to be a part of community, please [join](https://discord.gg/U5WWaJR).
+If you have any questions or just want to be a part of community, please [join](https://discord.gg/b8FYze).
 
 ### Project Status ###
 
-Currenly komodo-qt is *under developement*. Use it at your own risk - do not use for mining or merchant applications, also we don't recommend now to use it with your main wallet. Before use you can copy your main wallet.dat in a secure place or use `-datadir` command-line key to select other data folder for use with komodo-qt.
-
-![](./images/image02.png)
-
-![](./images/image03.png)
+Currenly Pirate-qt is *under developement*. Use it at your own risk - do not use for mining or merchant applications, also we don't recommend now to use it with your main wallet. Before use you can copy your main wallet.dat in a secure place or use `-datadir` command-line key to select other data folder for use with Pirate-qt.
 
 Features:
 
 - Native QT wallet written in C/C++ and Rust (librustzcash library).
 - Receiving and sending coins.
 - Extended coin control features, selecting "Inputs..." (UTXOs) when sending coins.
-- Supporting assetchains (launch KomodoOceanGUI.exe with needed `-ac_name`, `-ac_supply` and `-addnode` command-line keys to launch wallet on needed assetchain or use existing batch files in repo).
 - **Sapling support**.
 
 
@@ -88,25 +75,25 @@ System requirements:
 
 ![](./images/install_02.png)
 
-**2.** Clone sources repository using `git clone https://github.com/ip-gpu/KomodoOcean` or `git clone https://github.com/DeckerSU/KomodoOcean` .
+**2.** Clone sources repository using `git clone https://github.com/piratenetwork/PirateOcean` or `git clone https://github.com/TheComputerGenie/PirateOcean` .
 
 **3.** Make sure that you are on Windows (master) branch `git checkout master` .
 
-**4.** Unpack the content of `KomodoOcean\depends\depends.zip` archive in `KomodoOcean\depends` folder:
+**4.** Unpack the content of `PirateOcean\depends\depends.zip` archive in `PirateOcean\depends` folder:
 
 ![](./images/install_01.png)
 
-**5.** Launch Qt Creator and choose Open Project. Navigate to `KomodoOcean` directory and open `KomodoOceanGUI.pro` project file.
+**5.** Launch Qt Creator and choose Open Project. Navigate to `PirateOcean` directory and open `PirateOceanGUI.pro` project file.
 
-**5a.** Make sure that Build directory in Projects -> Build Settings corresponds to your project path (for example `C:\Distr\KomodoOcean`, this is a folder in which we clone repo).
+**5a.** Make sure that Build directory in Projects -> Build Settings corresponds to your project path (for example `C:\Distr\PirateOcean`, this is a folder in which we clone repo).
 
 ![](./images/install_03.png)
 
-**6.** Select Build -> Build Project "KomodoOceanGUI" from Top Menu or press Ctrl-B to start build.
+**6.** Select Build -> Build Project "PirateOceanGUI" from Top Menu or press Ctrl-B to start build.
 
-**7.** After build is finished you will see ```KomodoOceanGUI.exe``` in ```release``` folder.
+**7.** After build is finished you will see ```PirateOceanGUI.exe``` in ```release``` folder.
 
-Congratulations! You built Komodo-Qt (KomodoOcean) for Windows. Now you can run it. 
+Congratulations! You built Pirate-Qt (PirateOcean) for Windows. Now you can run it. 
 
 ### Dependencies ###
 

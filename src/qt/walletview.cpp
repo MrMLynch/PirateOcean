@@ -91,7 +91,7 @@ WalletView::~WalletView()
 {
 }
 
-void WalletView::setKomodoOceanGUI(KomodoOceanGUI *gui)
+void WalletView::setPirateOceanGUI(PirateOceanGUI *gui)
 {
     if (gui)
     {

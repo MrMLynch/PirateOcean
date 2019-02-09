@@ -1,1 +1,0 @@
-start ..\KomodoOceanGUI.exe -ac_name=HODL -ac_supply=9999999 -addnode=78.47.196.146

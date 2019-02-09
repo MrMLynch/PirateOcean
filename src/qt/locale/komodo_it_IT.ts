@@ -88,7 +88,7 @@
     </message>
 </context>
 <context>
-    <name>KomodoOceanGUI</name>
+    <name>PirateOceanGUI</name>
     <message>
         <source>&amp;Transactions</source>
         <translation>Transazioni</translation>

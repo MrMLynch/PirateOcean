@@ -1,1 +1,0 @@
-start ..\KomodoOceanGUI.exe -ac_name=BTCH -ac_supply=20998641 -addnode=78.47.196.146

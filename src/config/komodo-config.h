@@ -1,4 +1,4 @@
-#define PACKAGE_NAME "KomodoOcean"
+#define PACKAGE_NAME "PirateOcean"
 
 #define CLIENT_VERSION_MAJOR 2
 #define CLIENT_VERSION_MINOR 0
@@ -8,10 +8,10 @@
 //! Set to true for release, false for prerelease or test build
 #define CLIENT_VERSION_IS_RELEASE false
 
-#define COPYRIGHT_YEAR 2018
+#define COPYRIGHT_YEAR 2019
 
 #define _COPYRIGHT_HOLDERS "The %s developers"
-#define _COPYRIGHT_HOLDERS_SUBSTITUTION "Ocean and Decker"
+#define _COPYRIGHT_HOLDERS_SUBSTITUTION "ComputerGenie and Pirate"
 #define COPYRIGHT_HOLDERS _COPYRIGHT_HOLDERS
 #define COPYRIGHT_HOLDERS_SUBSTITUTION _COPYRIGHT_HOLDERS_SUBSTITUTION
 
