@@ -38,8 +38,8 @@
         <translation>Билдирүүнү &amp;текшерүү...</translation>
     </message>
     <message>
-        <source>Komodo</source>
-        <translation>Komodo</translation>
+        <source>Pirate</source>
+        <translation>Pirate</translation>
     </message>
     <message>
         <source>Wallet</source>

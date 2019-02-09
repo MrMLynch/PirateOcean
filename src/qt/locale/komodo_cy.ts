@@ -114,8 +114,8 @@
         <translation>Newid y cyfrinymadrodd a ddefnyddiwyd ar gyfer amgryptio'r waled</translation>
     </message>
     <message>
-        <source>Komodo</source>
-        <translation>Komodo</translation>
+        <source>Pirate</source>
+        <translation>Pirate</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -484,8 +484,8 @@
         <translation>Opsiynau:</translation>
     </message>
     <message>
-        <source>Komodo Core</source>
-        <translation>Craidd Komodo</translation>
+        <source>Pirate Core</source>
+        <translation>Craidd Pirate</translation>
     </message>
     <message>
         <source>Information</source>
