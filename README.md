@@ -1,4 +1,4 @@
-## PirateOcean (komodo-qt) ##
+## PirateOcean (pirate-qt) ##
 
 Pirate-Qt (PirateOcean) is a world-first Qt native wallet for ARRR ([Pirate](https://pirate.black/)). It's available for three OS platforms - Windows, Linux, MacOS.
 
