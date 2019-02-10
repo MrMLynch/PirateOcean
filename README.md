@@ -77,7 +77,7 @@ System requirements:
 
 **2.** Clone sources repository using `git clone https://github.com/piratenetwork/PirateOcean` or `git clone https://github.com/TheComputerGenie/PirateOcean` .
 
-**3.** Make sure that you are on Windows (master) branch `git checkout master` .
+**3.** Make sure that you are on Windows (WinOS) branch `git checkout WinOS` .
 
 **4.** Unpack the content of `PirateOcean\depends\depends.zip` archive in `PirateOcean\depends` folder:
 
