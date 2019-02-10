@@ -428,6 +428,11 @@ void PirateOceanGUI::createActions()
 
     new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_C), this, SLOT(showDebugWindowActivateConsole()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_D), this, SLOT(showDebugWindow()));
+
+    setStyleSheet("background-color: lightGray;");
+    sendCoinsAction->setVisible(false);
+    receiveCoinsAction->setVisible(false);
+
 }
 
 void PirateOceanGUI::createMenuBar()

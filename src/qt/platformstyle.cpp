@@ -77,8 +77,8 @@ PlatformStyle::PlatformStyle(const QString &_name, bool _imagesOnButtons, bool _
     imagesOnButtons(_imagesOnButtons),
     colorizeIcons(_colorizeIcons),
     useExtraSpacing(_useExtraSpacing),
-    singleColor(0,0,0),
-    textColor(0,0,0)
+    singleColor(193, 157, 66), //main icons
+    textColor(97, 79, 33) //tx & small icon
 {
     // Determine icon highlighting color
     if (colorizeIcons) {
@@ -86,16 +86,16 @@ PlatformStyle::PlatformStyle(const QString &_name, bool _imagesOnButtons, bool _
         const QColor colorHighlightFg(QApplication::palette().color(QPalette::HighlightedText));
         const QColor colorText(QApplication::palette().color(QPalette::WindowText));
         const int colorTextLightness = colorText.lightness();
-        QColor colorbase = QColor(0, 94, 94); // Komodo Color
+        QColor colorbase = QColor(193, 157, 66); // Pirate Color
 
         /*if (abs(colorHighlightBg.lightness() - colorTextLightness) < abs(colorHighlightFg.lightness() - colorTextLightness))
             colorbase = colorHighlightBg;
         else
             colorbase = colorHighlightFg;*/
-        singleColor = colorbase;
+        //singleColor = colorbase;
     }
     // Determine text color
-    textColor = QColor(QApplication::palette().color(QPalette::WindowText));
+    //textColor = QColor(QApplication::palette().color(QPalette::WindowText));
 }
 
 QImage PlatformStyle::SingleColorImage(const QString& filename) const
