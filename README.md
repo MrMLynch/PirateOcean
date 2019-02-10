@@ -129,6 +129,6 @@ If you don't set-up any substitutions https -> ssh for git earlier, no additiona
 Your `*.lib` will be available in `target/(release/debug)` folders relatively.
 
 ### Developers of Qt wallet ###
-
+- Main Pirate developer: [TheComputerGenie](https://github.com/TheComputerGenie)
 - Main developer: [Ocean](https://github.com/ip-gpu)
 - IT Expert / Sysengineer: [Decker](https://github.com/DeckerSU) 
