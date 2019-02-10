@@ -13,7 +13,7 @@ Visit [#wallet-development](https://discord.gg/b8FYze) channel in Pirate Discord
 
 ### System requirements ###
 
-- Windows 8 / 8.1 / 10 (64-bit) based PC.
+- Windows 7 / 10 (64-bit) based PC.
 - At least 4 Gb of **free** RAM (8 or 16 Gb physical RAM recommended).
 - About ~10-15 Gb of storage space to sync full blockchain (SSD drive is recommended)
 
@@ -44,13 +44,12 @@ If you have any questions or just want to be a part of community, please [join](
 
 ### Project Status ###
 
-Currenly Pirate-qt is *under developement*. Use it at your own risk - do not use for mining or merchant applications, also we don't recommend now to use it with your main wallet. Before use you can copy your main wallet.dat in a secure place or use `-datadir` command-line key to select other data folder for use with Pirate-qt.
+Currenly Pirate-qt is *under developement*. Use it at your own risk - do not use for mining or merchant applications, also we don't recommend using it with your main wallet. Before use you can copy your main wallet.dat in a secure place or use `-datadir` command-line key to select other data folder for use with Pirate-qt.
 
 Features:
 
 - Native QT wallet written in C/C++ and Rust (librustzcash library).
 - Receiving and sending coins.
-- Extended coin control features, selecting "Inputs..." (UTXOs) when sending coins.
 - **Sapling support**.
 
 
