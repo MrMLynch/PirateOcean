@@ -9,7 +9,7 @@
 #define UNUSED
 #endif
 static const char UNUSED *komodo_strings[] = {
-QT_TRANSLATE_NOOP("komodo-core", "Komodo Core"),
+QT_TRANSLATE_NOOP("komodo-core", "Pirate Core"),
 QT_TRANSLATE_NOOP("komodo-core", "The %s developers"),
 QT_TRANSLATE_NOOP("komodo-core", ""
 "(1 = keep tx meta data e.g. account owner and payment request information, 2 "

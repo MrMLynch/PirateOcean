@@ -1008,6 +1008,7 @@ std::string PrivacyInfo()
 std::string LicenseInfo()
 {
     return "\n" +
+           FormatParagraph(strprintf(_("Copyright (C) 2018-%i ComputerGenie and Pirate Developers"), COPYRIGHT_YEAR)) + "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2009-%i The Bitcoin Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2015-%i The Zcash Developers"), COPYRIGHT_YEAR)) + "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2015-%i jl777 and SuperNET developers"), COPYRIGHT_YEAR)) + "\n" +
@@ -1031,9 +1032,9 @@ std::string CopyrightHolders(const std::string& strPrefix)
 {
     std::string strCopyrightHolders = strPrefix + strprintf(_(COPYRIGHT_HOLDERS), _(COPYRIGHT_HOLDERS_SUBSTITUTION));
 
-    // Check for untranslated substitution to make sure Komodo Core copyright is not removed by accident
-    if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Komodo Core") == std::string::npos) {
-        strCopyrightHolders += "\n" + strPrefix + "The Komodo Core developers";
+    // Check for untranslated substitution to make sure Pirate Core copyright is not removed by accident
+    if (strprintf(COPYRIGHT_HOLDERS, COPYRIGHT_HOLDERS_SUBSTITUTION).find("Pirate Core") == std::string::npos) {
+        strCopyrightHolders += "\n" + strPrefix + "The Pirate Core developers";
     }
     return strCopyrightHolders;
 }

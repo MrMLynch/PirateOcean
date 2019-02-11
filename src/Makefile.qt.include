@@ -130,7 +130,7 @@ QT_MOC_CPP = \
   qt/moc_bantablemodel.cpp \
   qt/moc_komodoaddressvalidator.cpp \
   qt/moc_komodoamountfield.cpp \
-  qt/moc_komodooceangui.cpp \
+  qt/moc_PirateOceanGUI.cpp \
   qt/moc_komodounits.cpp \
   qt/moc_callback.cpp \
   qt/moc_clientmodel.cpp \
@@ -210,7 +210,7 @@ KOMODO_QT_H = \
   qt/bantablemodel.h \
   qt/komodoaddressvalidator.h \
   qt/komodoamountfield.h \
-  qt/komodooceangui.h \
+  qt/PirateOceanGUI.h \
   qt/komodounits.h \
   qt/callback.h \
   qt/clientmodel.h \
@@ -321,7 +321,7 @@ KOMODO_QT_BASE_CPP = \
   qt/bantablemodel.cpp \
   qt/komodoaddressvalidator.cpp \
   qt/komodoamountfield.cpp \
-  qt/komodooceangui.cpp \
+  qt/PirateOceanGUI.cpp \
   qt/komodounits.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \

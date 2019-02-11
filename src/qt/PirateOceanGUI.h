@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef KOMODO_QT_KOMODOOCEANGUI_H
-#define KOMODO_QT_KOMODOOCEANGUI_H
+#ifndef KOMODO_QT_PirateOceanGUI_H
+#define KOMODO_QT_PirateOceanGUI_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/komodo-config.h"
@@ -41,7 +41,7 @@ QT_END_NAMESPACE
   Komodo GUI main class. This class represents the main window of the Komodo UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
-class KomodoOceanGUI : public QMainWindow
+class PirateOceanGUI : public QMainWindow
 {
     Q_OBJECT
 
@@ -49,8 +49,8 @@ public:
     static const QString DEFAULT_WALLET;
     static const std::string DEFAULT_UIPLATFORM;
 
-    explicit KomodoOceanGUI(const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = 0);
-    ~KomodoOceanGUI();
+    explicit PirateOceanGUI(const PlatformStyle *platformStyle, const NetworkStyle *networkStyle, QWidget *parent = 0);
+    ~PirateOceanGUI();
 
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
@@ -280,4 +280,4 @@ private Q_SLOTS:
     void onMenuSelection(QAction* action);
 };
 
-#endif // KOMODO_QT_KOMODOOCEANGUI_H
+#endif // KOMODO_QT_PirateOceanGUI_H

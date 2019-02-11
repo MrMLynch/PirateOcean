@@ -297,9 +297,9 @@
     </message>
 </context>
 <context>
-    <name>KomodoOceanGUI</name>
+    <name>PirateOceanGUI</name>
     <message>
-        <location filename="../komodooceangui.cpp" line="+357"/>
+        <location filename="../PirateOceanGUI.cpp" line="+357"/>
         <source>Sign &amp;message...</source>
         <translation>Sign &amp;message...</translation>
     </message>
@@ -3876,7 +3876,7 @@
 <context>
     <name>UnitDisplayStatusBarControl</name>
     <message>
-        <location filename="../komodooceangui.cpp" line="+129"/>
+        <location filename="../PirateOceanGUI.cpp" line="+129"/>
         <source>Unit to show amounts in. Click to select another unit.</source>
         <translation type="unfinished"></translation>
     </message>
