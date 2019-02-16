@@ -52,7 +52,7 @@
     </message>
     </context>
 <context>
-    <name>KomodoOceanGUI</name>
+    <name>PirateOceanGUI</name>
     <message>
         <source>&amp;Overview</source>
         <translation>&amp;கண்ணோட்டம்</translation>
@@ -706,7 +706,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Pirate Core</source>
         <translation>Pirate மையம்</translation>

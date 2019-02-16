@@ -26,31 +26,30 @@
 #include <QPainter>
 #include <QRadialGradient>
 
-SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) :
-    QWidget(0, f), curAlignment(0)
+SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) : QWidget(0, f), curAlignment(0)
 {
     // set reference point, paddings
-    int paddingRight            = 50;
-    int paddingTop              = 50;
-    int titleVersionVSpace      = 17;
-    int titleCopyrightVSpace    = 40;
+    int paddingRight = 200;
+    int paddingTop = 50;
+    int titleVersionVSpace = 47; // version down from title
+    int titleCopyrightVSpace = 60; // down from title
 
-    float fontFactor            = 1.0;
-    float devicePixelRatio      = 1.0;
+    float fontFactor = 1.0;
+    float devicePixelRatio = 0.75;
 #if QT_VERSION > 0x050100
-    devicePixelRatio = ((QGuiApplication*)QCoreApplication::instance())->devicePixelRatio();
+    devicePixelRatio = ((QGuiApplication *)QCoreApplication::instance())->devicePixelRatio();
 #endif
 
     // define text to place
-    QString titleText       = tr(PACKAGE_NAME);
-    QString versionText     = QString("Version %1").arg(QString::fromStdString(FormatFullVersion()));
-    QString copyrightText   = QString::fromUtf8(CopyrightHolders(strprintf("\xc2\xA9 %u-%u ", 2017, COPYRIGHT_YEAR)).c_str());
-    QString titleAddText    = networkStyle->getTitleAddText();
+    QString titleText = tr(PACKAGE_NAME);
+    QString versionText = QString("Version %1").arg(QString::fromStdString(FormatFullVersion()));
+    QString copyrightText = QString::fromUtf8(CopyrightHolders(strprintf("\xc2\xA9 %u-%u ", 2018, COPYRIGHT_YEAR)).c_str());
+    QString titleAddText = networkStyle->getTitleAddText();
 
-    QString font            = QApplication::font().toString();
+    QString font = QApplication::font().toString();
 
     // create a bitmap according to device pixelratio
-    QSize splashSize(480*devicePixelRatio,320*devicePixelRatio);
+    QSize splashSize(510 * devicePixelRatio, 260 * devicePixelRatio);
     pixmap = QPixmap(splashSize);
 
 #if QT_VERSION > 0x050100
@@ -59,20 +58,19 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
 #endif
 
     QPainter pixPaint(&pixmap);
-    pixPaint.setPen(QColor(100,100,100));
+    pixPaint.setPen(QColor(50, 50, 50));
 
     // draw a slightly radial gradient
-    QRadialGradient gradient(QPoint(0,0), splashSize.width()/devicePixelRatio);
-    gradient.setColorAt(0, Qt::white);
-    gradient.setColorAt(1, QColor(247,247,247));
-    QRect rGradient(QPoint(0,0), splashSize);
+    QRadialGradient gradient(QPoint(0, 0), splashSize.width() / devicePixelRatio);
+    gradient.setColorAt(0, Qt::white); //top left color
+    gradient.setColorAt(1, QColor(188, 172, 94)); //bottom right color
+    QRect rGradient(QPoint(0, 0), splashSize);
     pixPaint.fillRect(rGradient, gradient);
 
-    // draw the komodo icon, expected size of PNG: 1024x1024
-//    QRect rectIcon(QPoint(-150,-122), QSize(430,430));
-    QRect rectIcon(QPoint(-50,-10), QSize(350,350));
+    // draw the Pirate icon, expected size of PNG: 1024x1024
+    QRect rectIcon(QPoint(20,40), QSize(160,160));
 
-    const QSize requiredSize(1024,1024);
+    const QSize requiredSize(1024, 1024);
     QPixmap icon(networkStyle->getAppIcon().pixmap(requiredSize));
 
     pixPaint.drawPixmap(rectIcon, icon);
@@ -92,7 +90,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
 
     pixPaint.setFont(QFont(font, 15*fontFactor));
 
-    // if the version string is to long, reduce size
+    // if the version string is too long, reduce size
     fm = pixPaint.fontMetrics();
     int versionTextWidth  = fm.width(versionText);
     if(versionTextWidth > titleTextWidth+paddingRight-10) {
@@ -106,18 +104,19 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
         pixPaint.setFont(QFont(font, 10*fontFactor));
         const int x = pixmap.width()/devicePixelRatio-titleTextWidth-paddingRight;
         const int y = paddingTop+titleCopyrightVSpace;
-        QRect copyrightRect(x, y, pixmap.width() - x - paddingRight, pixmap.height() - y);
-        pixPaint.drawText(copyrightRect, Qt::AlignLeft | Qt::AlignTop | Qt::TextWordWrap, copyrightText);
+        QRect copyrightRect(x, y, pixmap.width() + x - paddingRight, pixmap.height() - y);
+        pixPaint.drawText(copyrightRect, Qt::AlignLeft | Qt::AlignTop, copyrightText);
     }
 
     // draw additional text if special network
-    if(!titleAddText.isEmpty()) {
-        QFont boldFont = QFont(font, 10*fontFactor);
+    if (!titleAddText.isEmpty())
+    {
+        QFont boldFont = QFont(font, 10 * fontFactor);
         boldFont.setWeight(QFont::Bold);
         pixPaint.setFont(boldFont);
         fm = pixPaint.fontMetrics();
-        int titleAddTextWidth  = fm.width(titleAddText);
-        pixPaint.drawText(pixmap.width()/devicePixelRatio-titleAddTextWidth-10,15,titleAddText);
+        int titleAddTextWidth = fm.width(titleAddText);
+        pixPaint.drawText(pixmap.width() / devicePixelRatio - titleAddTextWidth - 10, 15, titleAddText);
     }
 
     pixPaint.end();
@@ -126,7 +125,7 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle *networkStyle) 
     setWindowTitle(titleText + " " + titleAddText);
 
     // Resize window and move to center of desktop, disallow resizing
-    QRect r(QPoint(), QSize(pixmap.size().width()/devicePixelRatio,pixmap.size().height()/devicePixelRatio));
+    QRect r(QPoint(), QSize(pixmap.size().width() / devicePixelRatio, pixmap.size().height() / devicePixelRatio));
     resize(r.size());
     setFixedSize(r.size());
     move(QApplication::desktop()->screenGeometry().center() - r.center());
@@ -140,10 +139,13 @@ SplashScreen::~SplashScreen()
     unsubscribeFromCoreSignals();
 }
 
-bool SplashScreen::eventFilter(QObject * obj, QEvent * ev) {
-    if (ev->type() == QEvent::KeyPress) {
+bool SplashScreen::eventFilter(QObject *obj, QEvent *ev)
+{
+    if (ev->type() == QEvent::KeyPress)
+    {
         QKeyEvent *keyEvent = static_cast<QKeyEvent *>(ev);
-        if(keyEvent->text()[0] == 'q') {
+        if (keyEvent->text()[0] == 'q')
+        {
             StartShutdown();
         }
     }
@@ -165,22 +167,22 @@ void SplashScreen::slotFinish(QWidget *mainWin)
 static void InitMessage(SplashScreen *splash, const std::string &message)
 {
     QMetaObject::invokeMethod(splash, "showMessage",
-        Qt::QueuedConnection,
-        Q_ARG(QString, QString::fromStdString(message)),
-        Q_ARG(int, Qt::AlignBottom|Qt::AlignHCenter),
-        Q_ARG(QColor, QColor(55,55,55)));
+                              Qt::QueuedConnection,
+                              Q_ARG(QString, QString::fromStdString(message)),
+                              Q_ARG(int, Qt::AlignBottom | Qt::AlignHCenter),
+                              Q_ARG(QColor, QColor(55, 55, 55)));
 }
 
 static void ShowProgress(SplashScreen *splash, const std::string &title, int nProgress, bool resume_possible)
 {
     InitMessage(splash, title + std::string("\n") +
-            (resume_possible ? _("(press q to shutdown and continue later)")
-                                : _("press q to shutdown")) +
-            strprintf("\n%d", nProgress) + "%");
+                            (resume_possible ? _("(press q to shutdown and continue later)")
+                                             : _("press q to shutdown")) +
+                            strprintf("\n%d", nProgress) + "%");
 }
 
 #ifdef ENABLE_WALLET
-void SplashScreen::ConnectWallet(CWallet* wallet)
+void SplashScreen::ConnectWallet(CWallet *wallet)
 {
     wallet->ShowProgress.connect(boost::bind(ShowProgress, this, _1, _2, false));
     connectedWallets.push_back(wallet);
@@ -203,7 +205,8 @@ void SplashScreen::unsubscribeFromCoreSignals()
     uiInterface.InitMessage.disconnect(boost::bind(InitMessage, this, _1));
     uiInterface.ShowProgress.disconnect(boost::bind(ShowProgress, this, _1, _2, _3));
 #ifdef ENABLE_WALLET
-    for (CWallet* const & pwallet : connectedWallets) {
+    for (CWallet *const &pwallet : connectedWallets)
+    {
         pwallet->ShowProgress.disconnect(boost::bind(ShowProgress, this, _1, _2, false));
     }
 #endif

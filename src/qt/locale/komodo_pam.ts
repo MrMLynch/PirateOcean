@@ -60,7 +60,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>KomodoOceanGUI</name>
+    <name>PirateOceanGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>I-sign ing &amp;mensayi</translation>
@@ -726,7 +726,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Options:</source>
         <translation>Pipamilian:</translation>

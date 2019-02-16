@@ -176,7 +176,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>KomodoOceanGUI</name>
+    <name>PirateOceanGUI</name>
     <message>
         <source>Synchronizing with network...</source>
         <translation>Duke u sinkronizuar me rrjetin...</translation>
@@ -778,7 +778,7 @@
     </message>
     </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Options:</source>
         <translation>Opsionet:</translation>

@@ -232,7 +232,7 @@
     </message>
 </context>
 <context>
-    <name>KomodoOceanGUI</name>
+    <name>PirateOceanGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>Podpisz wiado&amp;mość...</translation>
@@ -2613,7 +2613,7 @@ Zwróć uwagę, że poprawnie zweryfikowana wiadomość potwierdza to, że nadaw
     </message>
 </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Options:</source>
         <translation>Opcje:</translation>

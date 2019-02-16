@@ -10,7 +10,7 @@
 #include "ui_zaddressbookpage.h"
 
 #include "zaddresstablemodel.h"
-#include "komodooceangui.h"
+#include "PirateOceanGUI.h"
 #include "csvmodelwriter.h"
 #include "editzaddressdialog.h"
 #include "guiutil.h"

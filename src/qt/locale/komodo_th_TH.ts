@@ -88,7 +88,7 @@
     </message>
 </context>
 <context>
-    <name>KomodoOceanGUI</name>
+    <name>PirateOceanGUI</name>
     <message>
         <source>Sign &amp;message...</source>
         <translation>เซ็นต์ชื่อด้วย &amp;ข้อความ...</translation>
@@ -916,7 +916,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Options:</source>
         <translation>ตัวเลือก:</translation>

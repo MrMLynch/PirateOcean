@@ -12,7 +12,7 @@
     <name>BanTableModel</name>
     </context>
 <context>
-    <name>KomodoOceanGUI</name>
+    <name>PirateOceanGUI</name>
     <message>
         <source>Error</source>
         <translation>错误</translation>
@@ -166,7 +166,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Transaction too large for fee policy</source>
         <translation>根据费率标准，本次转账超额</translation>
