@@ -1010,7 +1010,7 @@
     </message>
     </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Pirate Core</source>
         <translation>Pirate Kern</translation>

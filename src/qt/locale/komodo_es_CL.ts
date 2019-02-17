@@ -750,7 +750,7 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Options:</source>
         <translation>Opciones:
@@ -773,7 +773,7 @@
     </message>
     <message>
         <source>Pirate Core</source>
-        <translation>komodo core</translation>
+        <translation>Pirate Core</translation>
     </message>
     <message>
         <source>Error loading block database</source>

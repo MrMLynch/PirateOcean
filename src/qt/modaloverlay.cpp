@@ -170,7 +170,9 @@ void ModalOverlay::toggleVisibility()
 void ModalOverlay::showHide(bool hide, bool userRequested)
 {
     if ((layerIsVisible && !hide) || (!layerIsVisible && hide) || (!hide && userClosed && !userRequested))
-        return;
+        if ((layerIsVisible && !hide) || (!layerIsVisible && hide) || (!hide && userClosed && !userRequested))
+            return;
+
     if (isVisible())
     {
         setStyleSheet("background-color: transparent;");
@@ -184,6 +186,7 @@ void ModalOverlay::showHide(bool hide, bool userRequested)
         setStyleSheet("background-color: transparent;");
         setVisible(true);
     }
+
     setGeometry(0, hide ? 0 : height(), width(), height());
 
     QPropertyAnimation *animation = new QPropertyAnimation(this, "pos");

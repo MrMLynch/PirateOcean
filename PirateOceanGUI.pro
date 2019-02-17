@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = PirateOceanGUI
-VERSION = 0.1.0.0
+VERSION = 0.1.0.1
 
 INCLUDEPATH += src src\qt src\libsnark src\protobuf src\secp256k1 src\secp256k1\include src\leveldb\include src\leveldb\helpers\memenv src\leveldb src\univalue\include src\libevent\include src\libevent\compat src\cryptoconditions\include src\cryptoconditions src\cryptoconditions\src\asn
 
@@ -142,7 +142,7 @@ linux:QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-igno
 # Input
 DEPENDPATH += .
 HEADERS += src\komodo_globals.h \
-     src\qt\komodooceangui.h \
+     src\qt\PirateOceanGUI.h \
      src\qt\transactiontablemodel.h \
      src\qt\addresstablemodel.h \
      src\qt\zaddresstablemodel.h \
@@ -368,7 +368,7 @@ SOURCES += src\protobuf\google\protobuf\any.cc \
     src\qt\komodo.cpp \
     src\qt\komodoaddressvalidator.cpp \
     src\qt\komodoamountfield.cpp \
-    src\qt\komodooceangui.cpp \
+    src\qt\PirateOceanGUI.cpp \
     src\qt\komodounits.cpp \
     src\qt\modaloverlay.cpp \
     src\qt\networkstyle.cpp \

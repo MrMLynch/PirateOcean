@@ -1,3 +1,11 @@
 build_debug/*
 build_release/*
 depends/
+
+PIRATE_7776
+
+\.qmake\.stash
+
+PirateOceanGUI\.pro\.user
+
+release/

@@ -6,7 +6,7 @@
 #include "config/komodo-config.h"
 #endif
 
-#include "komodooceangui.h"
+#include "PirateOceanGUI.h"
 #include "komodo_defs.h"
 
 #define KOMODO_ASSETCHAIN_MAXLEN 65
@@ -101,7 +101,7 @@ static void InitMessage(const std::string &message)
  */
 static std::string Translate(const char* psz)
 {
-    return QCoreApplication::translate("komodo-core", psz).toStdString();
+    return QCoreApplication::translate("pirate-core", psz).toStdString();
 }
 
 static QString GetLangTerritory()
@@ -179,7 +179,7 @@ void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, cons
 }
 #endif
 
-/** Class encapsulating Komodo Core startup and shutdown.
+/** Class encapsulating Pirate Core startup and shutdown.
  * Allows running startup and shutdown in a different thread from the UI thread.
  */
 class KomodoCore: public QObject

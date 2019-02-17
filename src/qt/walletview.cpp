@@ -7,7 +7,7 @@
 #include "addressbookpage.h"
 #include "zaddressbookpage.h"
 #include "askpassphrasedialog.h"
-#include "komodooceangui.h"
+#include "PirateOceanGUI.h"
 #include "clientmodel.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
