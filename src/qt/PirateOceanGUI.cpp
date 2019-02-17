@@ -148,13 +148,13 @@ PirateOceanGUI::PirateOceanGUI(const PlatformStyle *_platformStyle, const Networ
     QApplication::setWindowIcon(networkStyle->getTrayAndWindowIcon());
     setWindowIcon(networkStyle->getTrayAndWindowIcon());
     setWindowTitle(windowTitle);
-
+    
 #if defined(Q_OS_MAC) && QT_VERSION < 0x050000
     // This property is not implemented in Qt 5. Setting it has no effect.
     // A replacement API (QtMacUnifiedToolBar) is available in QtMacExtras.
     setUnifiedTitleAndToolBarOnMac(true);
 #endif
-
+    
     rpcConsole = new RPCConsole(_platformStyle, 0);
     helpMessageDialog = new HelpMessageDialog(this, false);
 #ifdef ENABLE_WALLET
@@ -372,7 +372,7 @@ void PirateOceanGUI::createActions()
 
     encryptWalletAction = new QAction(platformStyle->TextColorIcon(":/icons/lock_closed"), tr("&Encrypt Wallet..."), this);
     encryptWalletAction->setStatusTip(tr("Encrypt the private keys that belong to your wallet"));
-    encryptWalletAction->setCheckable(true);
+    encryptWalletAction->setCheckable(false);
     backupWalletAction = new QAction(platformStyle->TextColorIcon(":/icons/filesave"), tr("&Backup Wallet..."), this);
     backupWalletAction->setStatusTip(tr("Backup wallet to another location"));
     changePassphraseAction = new QAction(platformStyle->TextColorIcon(":/icons/key"), tr("&Change Passphrase..."), this);
@@ -428,10 +428,15 @@ void PirateOceanGUI::createActions()
 
     new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_C), this, SLOT(showDebugWindowActivateConsole()));
     new QShortcut(QKeySequence(Qt::CTRL + Qt::SHIFT + Qt::Key_D), this, SLOT(showDebugWindow()));
-
     setStyleSheet("background-color: lightGray;");
+    //hide all the bits that are for t addys
     sendCoinsAction->setVisible(false);
     receiveCoinsAction->setVisible(false);
+    encryptWalletAction->setVisible(false);
+    usedSendingAddressesAction->setVisible(false);
+    usedReceivingAddressesAction->setVisible(false);
+    signMessageAction->setVisible(false);
+    verifyMessageAction->setVisible(false);
 }
 
 void PirateOceanGUI::createMenuBar()
@@ -531,7 +536,7 @@ void PirateOceanGUI::setClientModel(ClientModel *_clientModel)
         unitDisplayControl->setOptionsModel(_clientModel->getOptionsModel());
 
         OptionsModel *optionsModel = _clientModel->getOptionsModel();
-        if (optionsModel && trayIcon)
+        if (optionsModel)
         {
             // be aware of the tray icon disable state change reported by the OptionsModel object.
             connect(optionsModel, SIGNAL(hideTrayIconChanged(bool)), this, SLOT(setTrayIconVisible(bool)));
@@ -636,17 +641,14 @@ void PirateOceanGUI::createTrayIconMenu()
     // Note: On macOS, the Dock icon is used to provide the tray's functionality.
     MacDockIconHandler *dockIconHandler = MacDockIconHandler::instance();
     connect(dockIconHandler, &MacDockIconHandler::dockIconClicked, this, &PirateOceanGUI::macosDockIconActivated);
-
+    
     trayIconMenu = new QMenu(this);
     trayIconMenu->setAsDockMenu();
 #endif
 
-    // Configuration of the tray icon (or Dock icon) menu
-#ifndef Q_OS_MAC
-    // Note: On macOS, the Dock icon's menu already has Show / Hide action.
+    // Configuration of the tray icon (or dock icon) icon menu
     trayIconMenu->addAction(toggleHideAction);
     trayIconMenu->addSeparator();
-#endif
     trayIconMenu->addAction(sendCoinsMenuAction);
     trayIconMenu->addAction(zsendCoinsMenuAction);
     trayIconMenu->addAction(receiveCoinsMenuAction);
@@ -955,7 +957,7 @@ void PirateOceanGUI::setNumBlocks(int count, const QDateTime &blockDate, double 
 
 void PirateOceanGUI::message(const QString &title, const QString &message, unsigned int style, bool *ret)
 {
-    QString strTitle = tr("Pirate"); // default title
+    QString strTitle = tr("Komodo"); // default title
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;

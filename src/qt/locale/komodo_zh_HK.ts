@@ -660,7 +660,7 @@
     </message>
     </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Information</source>
         <translation>資訊</translation>

@@ -3988,7 +3988,7 @@
     </message>
 </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <location filename="../komodostrings.cpp" line="+343"/>
         <source>Options:</source>

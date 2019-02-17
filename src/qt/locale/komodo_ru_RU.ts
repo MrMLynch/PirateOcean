@@ -834,14 +834,14 @@
     </message>
     </context>
 <context>
-    <name>komodo-core</name>
+    <name>pirate-core</name>
     <message>
         <source>Pirate Core</source>
         <translation>Pirate Core</translation>
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
-        <translation>komodo-core</translation>
+        <translation>pirate-core</translation>
     </message>
     <message>
         <source>Information</source>

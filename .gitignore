@@ -131,3 +131,9 @@ src/komodod
 src/qt/komodo-qt
 
 
+
+PirateWallet\.app/
+
+qa/pull-tester/run-komodod-for-test\.sh
+
+src/qt/komodo-qt\.dSYM/Contents/Info\.plist
