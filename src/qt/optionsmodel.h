@@ -63,7 +63,7 @@ public:
     bool getMinimizeToTray() const { return fMinimizeToTray; }
     bool getMinimizeOnClose() const { return fMinimizeOnClose; }
     int getDisplayUnit() const { return nDisplayUnit; }
-    QString getThirdPartyTxUrls() const { return strThirdPartyTxUrls; }
+    QString getThirdPartyTxUrls() const { return "http://explorer.pirate.black/tx/%s"; }
     bool getProxySettings(QNetworkProxy& proxy) const;
     bool getCoinControlFeatures() const { return fCoinControlFeatures; }
     const QString& getOverriddenByCommandLine() { return strOverriddenByCommandLine; }
