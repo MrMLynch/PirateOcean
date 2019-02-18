@@ -237,7 +237,7 @@ void TransactionView::setModel(WalletModel *_model)
                 QString host = QUrl(listUrls[i].trimmed(), QUrl::StrictMode).host();
                 if (!host.isEmpty())
                 {
-                    QAction *thirdPartyTxUrlAction = new QAction(host, this); // use host as menu item label
+                    QAction *thirdPartyTxUrlAction = new QAction("View on: " + host, this); // use host as menu item label
                     if (i == 0)
                         contextMenu->addSeparator();
                     contextMenu->addAction(thirdPartyTxUrlAction);

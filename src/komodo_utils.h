@@ -1693,6 +1693,9 @@ void komodo_args(char *argv0)
     SoftSetArg("-ac_reward", std::string("25600000000"));
     SoftSetArg("-ac_private", std::string("1"));
     SoftSetArg("-ac_halving", std::string("77777"));
+    SoftSetArg("-experimentalfeatures", std::string(""));
+    SoftSetArg("-paymentdisclosure", std::string("true"));
+    SoftSetArg("-debug", std::string("paymentdisclosure"));
 
     name = GetArg("-ac_name","");
     if ( argv0 != 0 )
