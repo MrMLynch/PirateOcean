@@ -1958,6 +1958,20 @@ bool GetAddressIndex(uint160 addressHash, int type,
     return true;
 }
 
+struct CompareBlocksByHeightMain
+{
+    bool operator()(const CBlockIndex* a, const CBlockIndex* b) const
+    {
+        /* Make sure that unequal blocks with the same height do not compare
+           equal. Use the pointers themselves to make a distinction. */
+
+        if (a->GetHeight() != b->GetHeight())
+          return (a->GetHeight() > b->GetHeight());
+
+        return a < b;
+    }
+};
+
 bool GetAddressUnspent(uint160 addressHash, int type,
                        std::vector<std::pair<CAddressUnspentKey, CAddressUnspentValue> > &unspentOutputs)
 {
@@ -1968,6 +1982,59 @@ bool GetAddressUnspent(uint160 addressHash, int type,
         return error("unable to get txids for address");
 
     return true;
+}
+
+bool RemoveOrphanedBlocks(int32_t notarized_height)
+{
+    LOCK(cs_main);
+    std::vector<const CBlockIndex*> prunedblocks;
+    std::set<const CBlockIndex*, CompareBlocksByHeightMain> setTips;
+    int32_t m=0,n = 0;
+    // get notarised timestamp and use this as a backup incase the forked block has no height. 
+    // we -600 to make sure the time is within future block constraints. 
+    uint32_t notarized_timestamp = komodo_heightstamp(notarized_height)-600;
+    // Most of this code is a direct copy from GetChainTips RPC. Which gives a return of all
+    // blocks that are not in the main chain.
+    BOOST_FOREACH(const PAIRTYPE(const uint256, CBlockIndex*)& item, mapBlockIndex)
+    {
+        n++;
+        setTips.insert(item.second);
+    }
+    n = 0;
+    BOOST_FOREACH(const PAIRTYPE(const uint256, CBlockIndex*)& item, mapBlockIndex)
+    {
+        const CBlockIndex* pprev=0;
+        n++;
+        if ( item.second != 0 )
+            pprev = item.second->pprev;
+        if (pprev)
+            setTips.erase(pprev);
+    }
+    const CBlockIndex *forked;
+    BOOST_FOREACH(const CBlockIndex* block, setTips)
+    {
+        // We skip anything over notarised height to avoid breaking normal consensus rules. 
+        if ( block->GetHeight() > notarized_height || block->nTime > notarized_timestamp )
+            continue;
+        // We can also check if the block is in the active chain as a backup test. 
+        forked = chainActive.FindFork(block);
+        // Here we save each forked block to a vector for removal later.
+        if ( forked != 0 )
+            prunedblocks.push_back(block); 
+    }
+    if (prunedblocks.size() > 0 && pblocktree->EraseBatchSync(prunedblocks))
+    {
+        // Blocks cleared from disk succesfully, using internal DB batch erase function. Which exists, but has never been used before.
+        // We need to try and clear the block index from mapBlockIndex now, otherwise node will need a restart. 
+        BOOST_FOREACH(const CBlockIndex* block, prunedblocks)
+        {
+            m++;
+            mapBlockIndex.erase(block->GetBlockHash());
+        }
+        fprintf(stderr, "%s removed %d orphans from %d blocks before %d\n",ASSETCHAINS_SYMBOL,m,n, notarized_height);
+        return true;
+    }    
+    return false;
 }
 
 /*uint64_t myGettxout(uint256 hash,int32_t n)
@@ -3172,7 +3239,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         //LogPrintf("checkblock failure in connectblock futureblock.%d\n",futureblock);
         return false;
     }
-
+    // check pindex->CONTEXT_VALIDATED flag
     if ( fCheckPOW != 0 && !ContextualCheckBlock(block, state, pindex->pprev) ) // Activate Jan 15th, 2019
     {
         LogPrintf("ContextualCheckBlock failed ht.%d\n",(int32_t)pindex->GetHeight());

@@ -55,21 +55,15 @@ const std::string CLIENT_NAME("MagicBean");
 #define GIT_COMMIT_DATE "Fri, 07 Dec 2018 00:00:00 +0500"
 #endif
 
+#define RENDER_ALPHA_STRING(num) "-alpha" DO_STRINGIZE(num)
 #define RENDER_BETA_STRING(num) "-beta" DO_STRINGIZE(num)
 #define RENDER_RC_STRING(num) "-rc" DO_STRINGIZE(num)
 #define RENDER_DEV_STRING(num) "-" DO_STRINGIZE(num)
 
 #define RENDER_BUILD(build) \
-    BOOST_PP_IF( \
-        BOOST_PP_LESS(build, 25), \
-        RENDER_BETA_STRING(BOOST_PP_ADD(build, 1)), \
-        BOOST_PP_IF( \
-            BOOST_PP_LESS(build, 50), \
-            RENDER_RC_STRING(BOOST_PP_SUB(build, 24)), \
-            BOOST_PP_IF( \
-                BOOST_PP_EQUAL(build, 50), \
-                "", \
-                RENDER_DEV_STRING(BOOST_PP_SUB(build, 50)))))
+    BOOST_PP_IF(BOOST_PP_LESS(build, 25),RENDER_BETA_STRING(BOOST_PP_ADD(build, 1)), \
+        BOOST_PP_IF( BOOST_PP_LESS(build, 50), RENDER_ALPHA_STRING(BOOST_PP_SUB(build, 24)), \
+            BOOST_PP_IF( BOOST_PP_EQUAL(build, 50), "", RENDER_DEV_STRING(BOOST_PP_SUB(build, 50)))))
 
 #define BUILD_DESC_WITH_SUFFIX(maj, min, rev, build, suffix) \
     "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) RENDER_BUILD(build) "-" DO_STRINGIZE(suffix)
