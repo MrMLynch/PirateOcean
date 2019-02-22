@@ -152,7 +152,7 @@ void WalletView::setWalletModel(WalletModel *_walletModel)
                 this, SLOT(processNewTransaction(QModelIndex,int,int)));
 
         // Ask for passphrase if needed
-        connect(_walletModel, SIGNAL(requireUnlock()), this, SLOT(unlockWallet()));
+        //connect(_walletModel, SIGNAL(requireUnlock()), this, SLOT(unlockWallet()));
 
         // Show progress dialog
         connect(_walletModel, SIGNAL(showProgress(QString,int)), this, SLOT(showProgress(QString,int)));
@@ -316,9 +316,9 @@ void WalletView::usedReceivingAddresses()
     if(!walletModel)
         return;
 
-    usedReceivingAddressesPage->show();
-    usedReceivingAddressesPage->raise();
-    usedReceivingAddressesPage->activateWindow();
+    usedReceivingZAddressesPage->show();
+    usedReceivingZAddressesPage->raise();
+    usedReceivingZAddressesPage->activateWindow();
 }
 
 void WalletView::usedReceivingZAddresses()

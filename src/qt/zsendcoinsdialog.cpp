@@ -165,8 +165,7 @@ void ZSendCoinsDialog::on_sendButton_clicked()
 
     // Always use a CCoinControl instance, use the CoinControlDialog instance if CoinControl has been enabled
     CCoinControl ctrl;
-    if (model->getOptionsModel()->getCoinControlFeatures())
-        ctrl = *CoinControlDialog::coinControl;
+    ctrl = *CoinControlDialog::coinControl;
 
     updateCoinControlState(ctrl);
 
@@ -512,9 +511,8 @@ void ZSendCoinsDialog::useAvailableBalance(SendCoinsEntry* entry)
 {
     // Get CCoinControl instance if CoinControl is enabled or create a new one.
     CCoinControl coin_control;
-    if (model->getOptionsModel()->getCoinControlFeatures()) {
-        coin_control = *CoinControlDialog::coinControl;
-    }
+    coin_control = *CoinControlDialog::coinControl;
+
 
     if (ui->payFromAddress->currentText().isEmpty())
     {
