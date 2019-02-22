@@ -2,7 +2,7 @@
 mydir="$PWD"
 pardir="${PWD%/*}"
 rm -rf "$mydir/PirateWallet.app"
-zcutil/build-mac.sh -j8
+zcutil/rebuild-mac.sh -j8
 cp src/qt/komodo-qt "$mydir"/PirateWallet
 rm src/qt/komodo-qt
 
