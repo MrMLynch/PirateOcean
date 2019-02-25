@@ -189,7 +189,7 @@ bool parseKomodoURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!KomodoUnits::parse(KomodoUnits::KMD, i->second, &rv.amount))
+                if(!KomodoUnits::parse(KomodoUnits::ARRR, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -228,7 +228,7 @@ QString formatKomodoURI(const SendCoinsRecipient &info)
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(KomodoUnits::format(KomodoUnits::KMD, info.amount, false, KomodoUnits::separatorNever));
+        ret += QString("?amount=%1").arg(KomodoUnits::format(KomodoUnits::ARRR, info.amount, false, KomodoUnits::separatorNever));
         paramCount++;
     }
 
