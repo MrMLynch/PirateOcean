@@ -11,6 +11,8 @@
 
 #include "addressbookpage.h"
 #include "addresstablemodel.h"
+#include "zaddressbookpage.h"
+#include "zaddresstablemodel.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
 #include "platformstyle.h"
@@ -74,8 +76,8 @@ void SendCoinsEntry::on_addressBookButton_clicked()
 {
     if(!model)
         return;
-    AddressBookPage dlg(platformStyle, AddressBookPage::ForSelection, AddressBookPage::SendingTab, this);
-    dlg.setModel(model->getAddressTableModel());
+    ZAddressBookPage dlg(platformStyle, ZAddressBookPage::ForSelection, ZAddressBookPage::SendingTab, this);
+    dlg.setModel(model->getZAddressTableModel());
     if(dlg.exec())
     {
         ui->payTo->setText(dlg.getReturnValue());

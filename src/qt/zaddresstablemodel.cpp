@@ -134,7 +134,7 @@ public:
                 break;
             }
             parent->beginInsertRows(QModelIndex(), lowerIndex, lowerIndex);
-            cachedAddressTable.insert(lowerIndex, AddressTableEntry(newEntryType, label, address));
+            cachedAddressTable.insert(lowerIndex, AddressTableEntry(newEntryType, address, address));
             parent->endInsertRows();
             break;
         case CT_UPDATED:
@@ -181,7 +181,7 @@ public:
 ZAddressTableModel::ZAddressTableModel(const PlatformStyle *_platformStyle, CWallet *_wallet, WalletModel *parent) :
     QAbstractTableModel(parent),walletModel(parent),wallet(_wallet),priv(0),platformStyle(_platformStyle)
 {
-    columns << tr("Mine") << tr("Balance") << tr("Label") << tr("Address");
+    columns << tr("Mine") << tr("Balance") << tr("Address") << tr("Address");
     priv = new ZAddressTablePriv(wallet, this);
     priv->refreshAddressTable();
 }
@@ -412,7 +412,7 @@ void ZAddressTableModel::updateEntry(const QString &address,
 
 QString ZAddressTableModel::addRow(const QString &type, const QString &label, const QString &address)
 {
-    std::string strLabel; // = label.toStdString();
+    std::string strLabel; // = address.toStdString();
     std::string strAddress = address.toStdString();
 
     editStatus = OK;
