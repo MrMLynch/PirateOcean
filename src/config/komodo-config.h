@@ -9,7 +9,7 @@
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
 
 /* Version Build */
-#define CLIENT_VERSION_BUILD 26
+#define CLIENT_VERSION_BUILD 31
 
 /* Version is release */
 #define CLIENT_VERSION_IS_RELEASE false
