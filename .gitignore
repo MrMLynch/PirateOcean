@@ -142,8 +142,6 @@ build_debug/
 
 *.stash
 
-PirateOceanGUI\.pro\.user
-
 release/PirateOceanGUI\.exp
 
 release/PirateOceanGUI\.lib
